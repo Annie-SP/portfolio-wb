@@ -1,19 +1,20 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger'),
-        nav = document.querySelector('.nav__list'),
-        navItem = document.querySelector('.nav__items'),
-        language = document.querySelector('.subheader__lang');
+    const menu = document.querySelector('.nav__list'),
+    menuItem = document.querySelectorAll('.nav__items'),
+    hamburger = document.querySelector('.hamburger');
+    lang = document.querySelector('.subheader__lang');
 
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('hamburger-active');
+        menu.classList.toggle('nav__list-active');
+        lang.classList.toggle('subheader__lang-active');
+    });
 
-            navItem.addEventListener('click', () => {
+    menuItem.forEach(item => {
+        item.addEventListener('click', () => {
             hamburger.classList.remove('hamburger-active');
-            nav.classList.remove('nav__list-active');
-            language.classList.remove('subheader__lang-active');
-        });
-
-            hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('hamburger-active');
-            nav.classList.toggle('nav__list-active');
-            language.classList.toggle('subheader__lang-active');
-        });
+            menu.classList.remove('nav__list-active');
+            lang.classList.remove('subheader__lang-active');
+        })
+    })
 })
